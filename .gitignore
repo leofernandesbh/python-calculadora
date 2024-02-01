@@ -1,0 +1,45 @@
+# Arquivos de sistema macOS
+.DS_Store
+
+# Byte-compiled / arquivos compilados Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+*.env/
+
+# Arquivos de log e cache
+*.log
+*.sqlite
+*.swp
+
+# Arquivos de configuração
+*.ini
+*.cfg
+
+# Pacotes
+*.zip
+*.tar.gz
+*.tar.bz2
+*.egg-info/
+dist/
+build/
+
+# Ambiente Jupyter
+.ipynb_checkpoints/
+
+# Ambiente de desenvolvimento
+.vscode/
+.idea/
+
+# Ambiente de testes
+*.pyc
+
+# Arquivos gerados pelo sistema
+Icon?
+ehthumbs.db
+Thumbs.db

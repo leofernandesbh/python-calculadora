@@ -1,0 +1,17 @@
+from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+ASSETS_DIR = ROOT_DIR / "assets"
+WINDOW_ICON_PATH = ASSETS_DIR / "triade-logo.svg"
+
+# Sizes
+MINIMUM_DISPLAY_WIDTH = 350
+BIG_FONT_SIZE = 40
+MEDIUM_FONT_SIZE = 24
+SMALL_FONT_SIZE = 12
+TEXT_MARGIN = 10
+
+# Colors
+PRIMARY_COLOR = '#1e81b0'
+DARKER_PRIMARY_COLOR = '#16658a'
+DARKEST_PRIMARY_COLOR = '#115270'

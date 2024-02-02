@@ -1,4 +1,4 @@
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, Signal
 from PySide6.QtWidgets import QLineEdit
 from consts.consts import BIG_FONT_SIZE, MINIMUM_DISPLAY_WIDTH, TEXT_MARGIN
 

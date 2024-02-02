@@ -1,10 +1,24 @@
+from PySide6.QtCore import Signal
 from PySide6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QGridLayout, QMessageBox
 
 class MainWindow(QMainWindow):
+  equalSignal = Signal() 
+  backspaceSignal = Signal()
+  clearSignal = Signal()
+  numberOrDotSignal = Signal(str)
+  operatorSignal = Signal(str)
+  
   def __init__(self, parent: QWidget | None = None, *args, **kwargs):
     super().__init__(parent, *args, **kwargs)
     
-    self.setWindowTitle("LFSoftwares® - Calculadora")        
+    self.setWindowTitle("LFSoftwares® - Calculadora")            
+    
+    self.menu_bar = self.menuBar()
+    self.file_menu = self.menu_bar.addMenu("Calculadora")
+    # self.file_menu.showMaximized()
+    
+    self.exit_action = self.file_menu.addAction("Sair")
+    self.exit_action.triggered.connect(self.close)
     
     self.vLayout = QVBoxLayout()
     self.widget = QWidget()

@@ -2,7 +2,7 @@ from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 ASSETS_DIR = ROOT_DIR / "assets"
-WINDOW_ICON_PATH = ASSETS_DIR / "triade-logo.svg"
+WINDOW_ICON_PATH = ASSETS_DIR / "icon.png"
 
 # Sizes
 MINIMUM_DISPLAY_WIDTH = 350

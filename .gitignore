@@ -43,3 +43,7 @@ build/
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# Arquivos de instalação
+__localcode
+__installer

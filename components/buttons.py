@@ -1,7 +1,6 @@
 import math
-from PySide6.QtGui import QKeyEvent
 from PySide6.QtWidgets import QWidget, QPushButton, QGridLayout
-from PySide6.QtCore import Slot, Qt
+from PySide6.QtCore import Slot
 from consts.consts import MEDIUM_FONT_SIZE
 from utils.util import formatNumber, isNumOrDot, isEmpty, isValidNumber
 
@@ -37,9 +36,9 @@ class ButtonsGrid(QGridLayout):
         ['',  '0', '.', '='],
     ]
     self.window = window
-    self.window.keyPressEvent = self.keyPressEvent
+    # self.window.keyPressEvent = self.keyPressEvent
     self._display = display
-    self._display.clear = self.clearDisplay
+    # self._display.clear = self.clearDisplay
     self._info = info
     self._equation = ''
     self._emptyEquationText = 'Sua conta'
@@ -66,41 +65,6 @@ class ButtonsGrid(QGridLayout):
   def equation(self, value):
     self._equation = value
     self._info.setText(value)
-    
-  def keyPressEvent(self, event: QKeyEvent) -> None:
-    text = event.text().strip().upper()
-    key = event.key()
-    
-    isEqual = text == '=' or key in [Qt.Key_Return, Qt.Key_Enter]
-    isBackspace = key in [Qt.Key_Backspace, Qt.Key_Delete]
-    isClear = text == 'C' or key == Qt.Key_Escape
-    isNumberOrDot = isNumOrDot(text)
-    isOperator = text in '+-*/=E'
-    
-    if isEqual:
-      self.window.equalSignal.emit()
-      return event.ignore()
-    
-    if isBackspace:
-      self.window.backspaceSignal.emit()
-      return event.ignore()
-    
-    if isClear:
-      self.window.clearSignal.emit()
-      return event.ignore()
-    
-    if isEmpty(text):
-      return event.ignore()
-    
-    if isNumberOrDot:
-      self.window.numberOrDotSignal.emit(text)
-      return event.ignore()
-    
-    if isOperator:
-      if text == 'E':
-        text = '^'
-      self.window.operatorSignal.emit(text)
-      return event.ignore()
     
   def addWidgetToGrid(self, widget: QWidget, row: int = 0, column: int = 0, rowSpan: int = 1, columnSpan: int = 1):
     self.addWidget(widget, row, column, rowSpan, columnSpan)

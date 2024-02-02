@@ -7,7 +7,8 @@ from utils.util import formatNumber, isNumOrDot, isEmpty, isValidNumber
 
 from typing import TYPE_CHECKING
 
-# Desta forma, evita erro de circular import (neste caso não era necessário, somente para lembrar)
+# Desta forma, evita erro de circular import (neste caso não era necessário, 
+# somente para lembrar)
 if TYPE_CHECKING:  
   from components.main_window import MainWindow
   from components.display import Display
@@ -169,6 +170,8 @@ class ButtonsGrid(QGridLayout):
   
   @Slot()
   def _buttonClick(self, buttonText):
+    # teste: str = 'um valor'    
+    # teste = 1
     newDisplayText = self.display.text() + buttonText
     
     isValid, strNumber = isValidNumber(newDisplayText)
